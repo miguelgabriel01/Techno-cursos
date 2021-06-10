@@ -2,7 +2,7 @@
   <div class="contato">
     <h1>Contato</h1>
     <div v-if="loading">
-      Carregando..
+      <page-loading/>
     </div>
 
     <div v-if="api">

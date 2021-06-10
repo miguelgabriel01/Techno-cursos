@@ -3,13 +3,13 @@
     <h1>Cursos</h1>
     
     <div v-if="loading">
-      Carregando..
+      <page-loading/>
     </div>
 
     <div v-if="api">
     <p>{{api}}</p>
     </div>
-    
+
   </div>
 </template>
 
