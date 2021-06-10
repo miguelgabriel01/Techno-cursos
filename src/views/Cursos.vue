@@ -1,14 +1,25 @@
 <template>
-  <div class="contato">
-    <h1>Cursos</h1>
-    
+  <div class="contato">    
     <div v-if="loading">
       <page-loading/>
     </div>
 
    <transition>
-      <div v-if="api">
-       <p>{{api}}</p>
+      <div v-if="api" class="conteudo">
+        <div>
+       <h1>{{api.titulo}}</h1>
+       <p>{{api.descricao}}</p>
+        </div>
+       <ul>
+         <li v-for="curso in api.cursos" :key="curso.id">
+           <h2>
+             <router-link :to="{name:'Curso',params: {curso: curso.id}}">
+             {{curso.nome}} - {{curso.totalAulas}} aulas | {{curso.horas}} horas
+             </router-link>
+             </h2>
+           <p>{{curso.descricao}}</p>
+         </li>
+       </ul>
       </div>
    </transition>
 
