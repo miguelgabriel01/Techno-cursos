@@ -16,7 +16,7 @@ export default{
           this.api = resposta;
           console.log(this.api)
           this.loading = false;  
-        },2000)
+        },1000)
       })
     }
   }

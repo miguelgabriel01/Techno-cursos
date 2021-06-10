@@ -1,13 +1,29 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
     <div v-if="loading">
       <page-loading/>
     </div>
 
-    <div v-if="api">
-    <p>{{api}}</p>
-    </div>
+   <transition>
+      <div v-if="api" class="conteudo">
+        <div>
+    <h1>Sobre a {{api.titulo}}</h1>
+    <p>{{api.descricao}}</p>
+     <router-link to="/cursos" tag="button" class="btn-cursos">Cursos</router-link>
+       <p>{{api}}</p>
+       <div>
+         <h2>Avaliações</h2>
+         <ul>
+           <li v-for="avaliacao in api.avaliacoes" :key="avaliacao.nome">
+              <p>{{avaliacao.nome}}</p>
+              <p>{{avaliacao.descricao}}</p>
+           </li>
+         </ul>
+       </div>
+        </div>
+      <img src="@/assets/aprender.png" alt="Aprenda Web Design">
+      </div>
+   </transition>
 
   </div>
 </template>
@@ -27,3 +43,17 @@ export default {
   }
 }
 </script>
+
+<style>
+  .btn-cursos{
+    padding: 15px 20px;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    border: none;
+    background: #4b8;
+    border-radius:4px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 2px rgba(0,0,0,0.1);
+  }
+</style>

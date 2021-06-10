@@ -6,9 +6,12 @@
       <page-loading/>
     </div>
 
-    <div v-if="api">
-    <p>{{api}}</p>
-    </div>
+   <transition>
+      <div v-if="api">
+       <p>{{api}}</p>
+      </div>
+   </transition>
+
 
   </div>
 </template>
